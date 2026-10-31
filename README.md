@@ -593,7 +593,7 @@ A imagem `experiencia-ra.png` registra a criatura 3D posicionada sobre o piso do
 
 O vídeo mostra o fluxo completo do jogo: escolha da faixa etária, busca da criatura no ambiente, desafio de matemática, captura e consulta ao catálogo.
 
-[▶ Assistir à demonstração](docs/images/NOME-DO-VIDEO.mp4)
+[▶ Assistir à demonstração](docs/images/Gameplay.mp4)
 
 ### Resumo das evidências
 
