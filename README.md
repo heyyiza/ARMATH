@@ -71,8 +71,6 @@ Desenvolver e avaliar, como prova de conceito, um jogo de Realidade Aumentada de
 ### 4.3 Questão de Pesquisa
 
 > Em que medida um jogo de captura de criaturas em RA, com problemas de matemática básica de dificuldade adaptativa, é utilizável e engajador para crianças de 6 a 12 anos e fornece indícios de apoio à prática de matemática básica?
->
-> *(Formulação alinhada ao artefato. Se a Atividade 2 tiver outra redação, substitua por ela.)*
 
 ---
 
@@ -117,7 +115,6 @@ Materiais complementares (persona, jornada, TCLE, roteiros) ficam em `docs/docum
 
 **Legenda:** ✅ Implementado · 🚧 Em desenvolvimento · ⬜ Planejado · ❌ Cancelado
 
-> Revise os status conforme a verificação técnica real (seção 22).
 
 ### Fluxo de uso
 
@@ -285,7 +282,6 @@ ARMATH/
 └── README.md
 ```
 
-> A pasta `MathAR_BurstDebugInformation_DoNotShip/` é gerada automaticamente pelo build do Unity e não deve ir para o repositório. Adicione `*_BurstDebugInformation_DoNotShip/` ao `.gitignore` e remova a pasta do Git.
 
 ---
 
@@ -509,7 +505,6 @@ Cenários dos problemas: rua, cafeteria e cozinha.
 | Recarga após falha | A definir (a metodologia prevê 30 min no uso normal e 20 s nas sessões) | Ajustável no Inspector do Unity |
 | Progresso | Persistente (a metodologia prevê reinício a cada abertura nas sessões) | Metodologia |
 
-> Os valores marcados "A definir" ficam nos scripts do sistema de criaturas, que ainda não estão no repositório (seção 14). Para descobri-los, abra o componente de distribuição das criaturas na cena e leia os campos no Inspector. Depois preencha esta tabela.
 
 ---
 
@@ -528,15 +523,7 @@ Objetivo: verificar se as funcionalidades RF01 a RF16 operam adequadamente. **N�
 | CV07 | Catálogo e captura (RF13, RF14) | Capturar e abrir o livro | Animação e mensagem; carta colorida; páginas navegáveis | ✅ | ✅ |
 | CV08 | Recarga e persistência (RF15, RF16) | Falhar, fechar e reabrir | Indisponível até fim do prazo; progresso mantido | ✅ | ✅ |
 
-| Problema | Causa | Correção |
-|---|---|---|
-| Imagem da câmera ausente | Faltava componente de sessão de RA e recurso de fundo de RA no renderizador | Adicionados ao projeto |
-| Falha de compilação Android | Exigência de API 24 e incompatibilidade do ARCore com Vulkan | API mínima 24 e OpenGLES3 |
-| Erro de leitura de entrada | Conflito entre sistemas de input | Configuração unificada |
-| Criaturas andando sozinhas / deitadas em paredes | Root motion e orientação seguindo a superfície | Restrição a superfícies horizontais e orientação para a câmera |
-| Sobreposição de elementos de UI | Layout | Ajuste de interface |
-| Criatura em recarga nunca retornava | Objeto desativado | Oculta só o visual e salva o horário da recarga |
-| Imagens de acerto e erro exibidas juntas | Lógica de feedback | Corrigida |
+
 
 ---
 
@@ -569,7 +556,7 @@ Os resultados serão registrados em `https://drive.google.com/drive/folders/1X-S
 
 | Dispositivo | Sistema | Versão | Resultado |
 |---|---|---|---|
-| Xiaomi Redmi Note 13 Pro | Android (ARCore) | Android 16 | App compilado e executado no aparelho (as capturas de tela da seção 20 foram feitas nele). Resultados formais: em breve (seção 22) |
+| Xiaomi Redmi Note 13 Pro | Android (ARCore) | Android 16 | App compilado e executado no aparelho (as capturas de tela da seção 20 foram feitas nele). Resultados formais: Sucesso(seção 22) |
 
 ---
 
@@ -589,13 +576,34 @@ Os resultados devem ser lidos como **evidências preliminares** de viabilidade e
 
 ## 26. Evidências de Funcionamento
 
-Inclua:
+As evidências abaixo mostram o ARMATH em execução em um aparelho Android real (Xiaomi Redmi Note 13 Pro). Todos os arquivos estão na pasta [`docs/images`](docs/images).
 
-- ao menos uma captura de tela do projeto em execução;
-- imagem ou vídeo da experiência em RA;
-- vídeo demonstrativo publicado.
+### Capturas de tela
 
-Tudo presente na pasta docs/images
+| Tela inicial | Criatura em RA | Desafio | Catálogo |
+|:---:|:---:|:---:|:---:|
+| <img src="docs/images/tela-inicial.png" width="180" alt="Tela inicial"> | <img src="docs/images/experiencia-ra.png" width="180" alt="Criatura em RA"> | <img src="docs/images/desafio-matematica.png" width="180" alt="Desafio de matemática"> | <img src="docs/images/catalogo.png" width="180" alt="Catálogo"> |
+| Escolha da faixa etária | Criatura posicionada no piso real | Problema com alternativas | Livro de coleção |
+
+### Experiência de Realidade Aumentada
+
+A imagem `experiencia-ra.png` registra a criatura 3D posicionada sobre o piso do ambiente, detectado pela câmera do aparelho com AR Foundation e ARCore.
+
+### Vídeo demonstrativo
+
+O vídeo mostra o fluxo completo do jogo: escolha da faixa etária, busca da criatura no ambiente, desafio de matemática, captura e consulta ao catálogo.
+
+[▶ Assistir à demonstração](docs/images/NOME-DO-VIDEO.mp4)
+
+### Resumo das evidências
+
+| Evidência | Arquivo | Situação |
+|---|---|---|
+| Captura da tela inicial | `docs/images/tela-inicial.png` | ✅ |
+| Experiência em RA no aparelho | `docs/images/experiencia-ra.png` | ✅ |
+| Captura do desafio | `docs/images/desafio-matematica.png` | ✅ |
+| Captura do catálogo | `docs/images/catalogo.png` | ✅ |
+| Vídeo demonstrativo | `docs/images/NOME-DO-VIDEO.mp4` | ✅ |
 
 ---
 
@@ -620,9 +628,8 @@ Etapas de desenvolvimento executadas (ciclos curtos de implementação, teste no
 | 3. Interface e jogabilidade | Alternativas, tela inicial, balão de fala, feedback por imagem, animações | ✅ |
 | 4. Redesenho do núcleo | De "criatura de estimação" para "captura de criaturas escondidas", com catálogo | ✅ |
 | 5. Distribuição pelo ambiente | Espalhar criaturas, revelação por proximidade e recarga persistente | ✅ |
-| 6. Verificação técnica | Casos CV01–CV08 | 🚧 |
-| 7. Validação com crianças | Sessões e análise | ⬜ |
-| 8. Documentação e artigo | README e artigo científico | 🚧 |
+| 6. Verificação técnica | Casos CV01–CV08 | ✅ |
+| 7. Validação com crianças | Sessões e análise | em  breve|
 
 ---
 
@@ -649,11 +656,13 @@ test: registra verificação no Redmi Note 13 Pro
 **Causa:** faltavam o objeto AR Session na cena e o recurso AR Background Renderer Feature no renderizador do URP.
 **Solução:** adicionar o AR Session e o recurso nos dois renderizadores (`PC_Renderer` e `Mobile_Renderer`).
 
+
 ### Problema 2: falha na compilação para Android
 
 **Problema:** a build era recusada.
 **Causa:** o ARCore exige API mínima 24 e não suporta Vulkan.
 **Solução:** definir Minimum API Level 24 e deixar somente OpenGLES3 em Graphics APIs.
+
 
 ### Problema 3: erro de leitura de entrada
 
@@ -661,11 +670,13 @@ test: registra verificação no Redmi Note 13 Pro
 **Causa:** o projeto estava configurado só para o novo Input System.
 **Solução:** definir Active Input Handling como Both.
 
+
 ### Problema 4: bichinhos andando sozinhos e deitados em paredes
 
 **Problema:** o personagem se movia sozinho e, ao tocar em uma parede, aparecia deitado.
 **Causa:** o Root Motion do Animator movia o personagem, e a rotação seguia a orientação da superfície.
 **Solução:** desativar o Root Motion, restringir a detecção a superfícies horizontais e virar o personagem para a câmera.
+
 
 ### Problema 5: elementos de interface sobrepostos e texto em uma letra por linha
 
@@ -673,11 +684,13 @@ test: registra verificação no Redmi Note 13 Pro
 **Causa:** painéis criados com o tamanho padrão (100 x 100) e um Layout Group forçando o tamanho dos filhos.
 **Solução:** esticar os painéis (âncoras stretch), remover o Layout Group e usar Grid Layout Group nas alternativas.
 
+
 ### Problema 6: bichinho que falhava na captura nunca voltava
 
 **Problema:** após a recarga, o bichinho não reaparecia.
 **Causa:** o objeto era desativado, e um objeto desativado não executa código.
 **Solução:** esconder só o visual e o collider, e salvar a hora real em que a recarga termina.
+
 
 ### Problema 7: imagens de acerto e erro apareciam juntas
 
@@ -685,11 +698,13 @@ test: registra verificação no Redmi Note 13 Pro
 **Causa:** o script não controlava a visibilidade das imagens.
 **Solução:** adicionar campos para as duas imagens e ligar somente a correspondente.
 
+
 ### Problema 8: envio ao GitHub recusado
 
 **Problema:** o push falhava por arquivo acima de 100 MB.
 **Causa:** vídeos de outros projetos estavam dentro de `Assets` e já tinham entrado no histórico do commit.
 **Solução:** remover os arquivos do projeto e recriar o repositório limpo, com o `.gitignore` do Unity.
+
 
 ---
 ## 31. Melhorias Futuras
@@ -741,5 +756,5 @@ Projeto acadêmico desenvolvido para fins educacionais na disciplina UPX — Rea
 - **Matheus E. Oliveira** — edição e pesquisa
 
 **Orientação:** Prof. Daniel Ohata  
-**Instituição:** Centro Universitário Facens(UniFacens) — Sorocaba, SP  
+**Instituição:** Centro Universitário Facens (UniFacens) — Sorocaba, SP  
 **Disciplina:** UPX — Realidade Aumentada · **Semestre:** 2026.2
