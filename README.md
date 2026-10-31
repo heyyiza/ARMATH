@@ -134,7 +134,7 @@ Organizados segundo a ISO/IEC 25010.
 
 | ID | Característica | Requisito |
 |---|---|---|
-| RNF01 | Eficiência de desempenho | Execução fluida em Android de gama intermediária [definir meta, ex.: 30 FPS, e medir] |
+| RNF01 | Eficiência de desempenho | Execução fluida em Android de gama intermediária |
 | RNF02 | Compatibilidade | Android 7.0 (API 24) ou superior com ARCore. iOS não verificado |
 | RNF03 | Usabilidade | Botões grandes, textos curtos, resposta por toque, sem limite de tempo |
 | RNF04 | Acessibilidade de uso | Exige apenas o smartphone, sem periféricos |
@@ -500,9 +500,9 @@ Cenários dos problemas: rua, cafeteria e cozinha.
 | Pontos por erro | −3 | `GameUIManager` (`pointsLostPerWrongAnswer`) |
 | Exibição do feedback | 2 s (+3 s com explicação no erro) | `GameUIManager` |
 | Escala da criatura | 0,15 | `ARFoxPlacer` (`foxScale`) |
-| Criaturas simultâneas | A definir (a metodologia prevê 3) | Ajustável no Inspector do Unity |
-| Distância de revelação | A definir (a metodologia prevê 1,8 m) | Ajustável no Inspector do Unity |
-| Recarga após falha | A definir (a metodologia prevê 30 min no uso normal e 20 s nas sessões) | Ajustável no Inspector do Unity |
+| Criaturas simultâneas | A metodologia prevê 3 | Ajustável no Inspector do Unity |
+| Distância de revelação | A metodologia prevê 1,8 m | Ajustável no Inspector do Unity |
+| Recarga após falha | A metodologia prevê 30 min no uso normal e 20 s nas sessões | Ajustável no Inspector do Unity |
 | Progresso | Persistente (a metodologia prevê reinício a cada abertura nas sessões) | Metodologia |
 
 
@@ -534,7 +534,7 @@ Estudo de caso exploratório, conduzido segundo a **Design Science Research** (H
 | Item | Descrição |
 |---|---|
 | **Participantes** | Crianças de 6 a 12 anos, amostra intencional e pequena (n a definir após a coleta) |
-| **Local** | Espaço de cerca de [3 × 3 m], piso visível, bem iluminado, sem superfícies lisas ou espelhadas |
+| **Local** | piso visível, bem iluminado, sem superfícies lisas ou espelhadas |
 | **Dispositivo** | Xiaomi Redmi Note 13 Pro em todas as sessões |
 | **Duração** | Cerca de 15 min por criança (exploração livre de 8 a 10 min) |
 | **Instrumentos** | Ficha de observação estruturada; questionário Smileyometer (READ; MACFARLANE, 2006); roteiro para professor/responsável |
@@ -548,7 +548,7 @@ Estudo de caso exploratório, conduzido segundo a **Design Science Research** (H
 
 > **Status:** os testes com crianças ainda não foram realizados e acontecerão em breve. Protocolo previsto. Esta seção está redigida como plano e deve ser reescrita no passado, com o que de fato ocorreu, depois das sessões.
 
-Os resultados serão registrados em `https://drive.google.com/drive/folders/1X-SkFhAxCaR5imRVYcYi5lDSEINxC8NH`.
+Os resultados serão registrados em `(https://drive.google.com/drive/folders/1X-SkFhAxCaR5imRVYcYi5lDSEINxC8NH)`.
 
 ---
 
@@ -556,8 +556,7 @@ Os resultados serão registrados em `https://drive.google.com/drive/folders/1X-S
 
 | Dispositivo | Sistema | Versão | Resultado |
 |---|---|---|---|
-| Xiaomi Redmi Note 13 Pro | Android (ARCore) | Android 16 | App compilado e executado no aparelho (as capturas de tela da seção 20 foram feitas nele). Resultados formais: Sucesso(seção 22) |
-
+| Xiaomi Redmi Note 13 Pro | Android (ARCore) | Android 16 | App compilado e executado no aparelho (as capturas de tela da seção 20 foram feitas nele). Resultados formais:Casos CV01 a CV08 verificados com sucesso (seção 22).|
 ---
 
 ## 25. Limitações Conhecidas
@@ -603,7 +602,7 @@ O vídeo mostra o fluxo completo do jogo: escolha da faixa etária, busca da cri
 | Experiência em RA no aparelho | `docs/images/experiencia-ra.png` | ✅ |
 | Captura do desafio | `docs/images/desafio-matematica.png` | ✅ |
 | Captura do catálogo | `docs/images/catalogo.png` | ✅ |
-| Vídeo demonstrativo | `docs/images/NOME-DO-VIDEO.mp4` | ✅ |
+| Vídeo demonstrativo | `docs/images/Gameplay.mp4` | ✅ |
 
 ---
 
@@ -629,7 +628,7 @@ Etapas de desenvolvimento executadas (ciclos curtos de implementação, teste no
 | 4. Redesenho do núcleo | De "criatura de estimação" para "captura de criaturas escondidas", com catálogo | ✅ |
 | 5. Distribuição pelo ambiente | Espalhar criaturas, revelação por proximidade e recarga persistente | ✅ |
 | 6. Verificação técnica | Casos CV01–CV08 | ✅ |
-| 7. Validação com crianças | Sessões e análise | em  breve|
+| 7. Validação com crianças | Sessões e análise | ⬜|
 
 ---
 
@@ -654,57 +653,57 @@ test: registra verificação no Redmi Note 13 Pro
 
 **Problema:** no Editor e no aparelho, o fundo ficava em uma cor sólida em vez da imagem da câmera.
 **Causa:** faltavam o objeto AR Session na cena e o recurso AR Background Renderer Feature no renderizador do URP.
-**Solução:** adicionar o AR Session e o recurso nos dois renderizadores (`PC_Renderer` e `Mobile_Renderer`).
-
+**Solução:** adicionar o AR Session e o recurso nos dois renderizadores (`PC_Renderer` e `Mobile_Renderer`).\
+\
 
 ### Problema 2: falha na compilação para Android
 
 **Problema:** a build era recusada.
 **Causa:** o ARCore exige API mínima 24 e não suporta Vulkan.
-**Solução:** definir Minimum API Level 24 e deixar somente OpenGLES3 em Graphics APIs.
-
+**Solução:** definir Minimum API Level 24 e deixar somente OpenGLES3 em Graphics APIs.\
+\
 
 ### Problema 3: erro de leitura de entrada
 
 **Problema:** exceção ao usar o Input clássico (toque e mouse).
 **Causa:** o projeto estava configurado só para o novo Input System.
-**Solução:** definir Active Input Handling como Both.
-
+**Solução:** definir Active Input Handling como Both.\
+\
 
 ### Problema 4: bichinhos andando sozinhos e deitados em paredes
 
 **Problema:** o personagem se movia sozinho e, ao tocar em uma parede, aparecia deitado.
 **Causa:** o Root Motion do Animator movia o personagem, e a rotação seguia a orientação da superfície.
-**Solução:** desativar o Root Motion, restringir a detecção a superfícies horizontais e virar o personagem para a câmera.
-
+**Solução:** desativar o Root Motion, restringir a detecção a superfícies horizontais e virar o personagem para a câmera.\
+\
 
 ### Problema 5: elementos de interface sobrepostos e texto em uma letra por linha
 
 **Problema:** textos e botões ficavam empilhados no centro da tela.
 **Causa:** painéis criados com o tamanho padrão (100 x 100) e um Layout Group forçando o tamanho dos filhos.
-**Solução:** esticar os painéis (âncoras stretch), remover o Layout Group e usar Grid Layout Group nas alternativas.
-
+**Solução:** esticar os painéis (âncoras stretch), remover o Layout Group e usar Grid Layout Group nas alternativas.\
+\
 
 ### Problema 6: bichinho que falhava na captura nunca voltava
 
 **Problema:** após a recarga, o bichinho não reaparecia.
 **Causa:** o objeto era desativado, e um objeto desativado não executa código.
-**Solução:** esconder só o visual e o collider, e salvar a hora real em que a recarga termina.
-
+**Solução:** esconder só o visual e o collider, e salvar a hora real em que a recarga termina.\
+\
 
 ### Problema 7: imagens de acerto e erro apareciam juntas
 
 **Problema:** no erro, a imagem de acerto ficava junto com a de erro.
 **Causa:** o script não controlava a visibilidade das imagens.
-**Solução:** adicionar campos para as duas imagens e ligar somente a correspondente.
-
+**Solução:** adicionar campos para as duas imagens e ligar somente a correspondente.\
+\
 
 ### Problema 8: envio ao GitHub recusado
 
 **Problema:** o push falhava por arquivo acima de 100 MB.
 **Causa:** vídeos de outros projetos estavam dentro de `Assets` e já tinham entrado no histórico do commit.
-**Solução:** remover os arquivos do projeto e recriar o repositório limpo, com o `.gitignore` do Unity.
-
+**Solução:** remover os arquivos do projeto e recriar o repositório limpo, com o `.gitignore` do Unity.\
+\
 
 ---
 ## 31. Melhorias Futuras
