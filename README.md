@@ -534,7 +534,7 @@ Estudo de caso exploratório, conduzido segundo a **Design Science Research** (H
 | Item | Descrição |
 |---|---|
 | **Participantes** | Crianças de 6 a 12 anos, amostra intencional e pequena (n a definir após a coleta) |
-| **Local** |Espaço livre de cerca de 3 × 3 m, piso visível, bem iluminado, sem superfícies lisas ou espelhadas |
+| **Local** | Espaço livre de cerca de 3 × 3 m, piso visível, bem iluminado, sem superfícies lisas ou espelhadas |
 | **Dispositivo** | Xiaomi Redmi Note 13 Pro em todas as sessões |
 | **Duração** | Cerca de 15 min por criança (exploração livre de 8 a 10 min) |
 | **Instrumentos** | Ficha de observação estruturada; questionário Smileyometer (READ; MACFARLANE, 2006); roteiro para professor/responsável |
@@ -556,7 +556,7 @@ Os resultados serão registrados na [pasta de documentos do projeto](https://dri
 
 | Dispositivo | Sistema | Versão | Resultado |
 |---|---|---|---|
-| Xiaomi Redmi Note 13 Pro | Android (ARCore) | Android 16 | App compilado e executado no aparelho (as capturas de tela da seção 20 foram feitas nele). Resultados formais :Casos CV01 a CV08 verificados com sucesso (seção 22).|
+| Xiaomi Redmi Note 13 Pro | Android (ARCore) | Android 16 | App compilado e executado no aparelho (as capturas de tela da seção 20 foram feitas nele). Resultados formais: Casos CV01 a CV08 verificados com sucesso (seção 22).|
 ---
 
 ## 25. Limitações Conhecidas
@@ -676,7 +676,7 @@ test: registra verificação no Redmi Note 13 Pro
 **Solução:** definir Active Input Handling como Both.
 
 
-### Problema 4: criaturas andando sozinhos e deitados em paredes
+### Problema 4: ccriaturas andando sozinhas e deitadas em paredes
 
 **Problema:** o personagem se movia sozinho e, ao tocar em uma parede, aparecia deitado.
 
@@ -696,7 +696,7 @@ test: registra verificação no Redmi Note 13 Pro
 
 ### Problema 6: criatura que falhava na captura nunca voltava
 
-**Problema:** após a recarga, o bichinho não reaparecia.
+**Problema:** após a recarga, a criatura não reaparecia.
 
 **Causa:** o objeto era desativado, e um objeto desativado não executa código.
 
