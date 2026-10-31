@@ -212,8 +212,6 @@ A aplicação é organizada em **quatro camadas**, implementadas como componente
 | **Interface** | Tela inicial, perguntas, feedback, catálogo |
 | **Persistência local** | Progresso e horários de recarga |
 
-![Arquitetura do sistema](docs/diagrams/arquitetura.png)
-
 ### Fluxo central
 
 ```text
@@ -464,8 +462,6 @@ Capturas de tela feitas no Xiaomi Redmi Note 13 Pro.
 | 1 (inicial 6–7 anos) | 1 a 5 | Adição e subtração |
 | 2 (inicial 8–9 anos) | 1 a 10 | + Comparação |
 | 3 (inicial 10–12 anos) | 2 a 12 | + Multiplicação |
-| 4 | 2 a 15 | + Divisão exata |
-| 5 | 3 a 20 | Todas |
 
 Cenários dos problemas: rua, cafeteria e cozinha.
 
@@ -534,7 +530,7 @@ Estudo de caso exploratório, conduzido segundo a **Design Science Research** (H
 
 > **Status:** os testes com crianças ainda não foram realizados e acontecerão em breve. Protocolo previsto. Esta seção está redigida como plano e deve ser reescrita no passado, com o que de fato ocorreu, depois das sessões.
 
-Os resultados serão registrados em `docs/documents/`.
+Os resultados serão registrados em `https://drive.google.com/drive/folders/1X-SkFhAxCaR5imRVYcYi5lDSEINxC8NH`.
 
 ---
 
@@ -568,8 +564,7 @@ Inclua:
 - imagem ou vídeo da experiência em RA;
 - vídeo demonstrativo publicado.
 
-```tudo presente na pasta docs/images
-```
+Tudo presente na pasta docs/images
 
 ---
 
@@ -666,23 +661,3 @@ Projeto acadêmico desenvolvido para fins educacionais na disciplina UPX — Rea
 **Orientação:** Prof. Daniel Ohata  
 **Instituição:** Centro Universitário Facens — Sorocaba, SP  
 **Disciplina:** UPX — Realidade Aumentada · **Semestre:** 2026.2
-
----
-
-## Checklist de Entrega
-
-- [ ] Código-fonte atualizado
-- [ ] README revisado (resultados da seção 22 e links da seção 27 preenchidos)
-- [ ] Versões das tecnologias registradas
-- [ ] Arquitetura apresentada
-- [ ] Funcionamento da RA explicado
-- [ ] Estrutura de pastas documentada
-- [ ] Scripts principais descritos
-- [ ] Procedimento de instalação testado
-- [ ] Procedimento de execução testado
-- [ ] Screenshots reais adicionados
-- [ ] Casos de verificação CV01–CV08 registrados
-- [ ] Dispositivo testado informado
-- [ ] Limitações documentadas
-- [ ] Evidência de funcionamento adicionada
-- [ ] Commits representam a evolução do projeto
