@@ -661,49 +661,49 @@ test: registra verificação no Redmi Note 13 Pro
 **Problema:** a build era recusada.
 **Causa:** o ARCore exige API mínima 24 e não suporta Vulkan.
 **Solução:** definir Minimum API Level 24 e deixar somente OpenGLES3 em Graphics APIs.\
-\
+
 
 ### Problema 3: erro de leitura de entrada
 
 **Problema:** exceção ao usar o Input clássico (toque e mouse).
 **Causa:** o projeto estava configurado só para o novo Input System.
 **Solução:** definir Active Input Handling como Both.\
-\
+
 
 ### Problema 4: bichinhos andando sozinhos e deitados em paredes
 
 **Problema:** o personagem se movia sozinho e, ao tocar em uma parede, aparecia deitado.
 **Causa:** o Root Motion do Animator movia o personagem, e a rotação seguia a orientação da superfície.
 **Solução:** desativar o Root Motion, restringir a detecção a superfícies horizontais e virar o personagem para a câmera.\
-\
+
 
 ### Problema 5: elementos de interface sobrepostos e texto em uma letra por linha
 
 **Problema:** textos e botões ficavam empilhados no centro da tela.
 **Causa:** painéis criados com o tamanho padrão (100 x 100) e um Layout Group forçando o tamanho dos filhos.
 **Solução:** esticar os painéis (âncoras stretch), remover o Layout Group e usar Grid Layout Group nas alternativas.\
-\
+
 
 ### Problema 6: bichinho que falhava na captura nunca voltava
 
 **Problema:** após a recarga, o bichinho não reaparecia.
 **Causa:** o objeto era desativado, e um objeto desativado não executa código.
 **Solução:** esconder só o visual e o collider, e salvar a hora real em que a recarga termina.\
-\
+
 
 ### Problema 7: imagens de acerto e erro apareciam juntas
 
 **Problema:** no erro, a imagem de acerto ficava junto com a de erro.
 **Causa:** o script não controlava a visibilidade das imagens.
 **Solução:** adicionar campos para as duas imagens e ligar somente a correspondente.\
-\
+
 
 ### Problema 8: envio ao GitHub recusado
 
 **Problema:** o push falhava por arquivo acima de 100 MB.
 **Causa:** vídeos de outros projetos estavam dentro de `Assets` e já tinham entrado no histórico do commit.
 **Solução:** remover os arquivos do projeto e recriar o repositório limpo, com o `.gitignore` do Unity.\
-\
+
 
 ---
 ## 31. Melhorias Futuras
