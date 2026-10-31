@@ -415,6 +415,21 @@ flowchart TD
     I --> C
 ```
 
+### Caso de uso 
+
+```mermaid
+flowchart LR
+    C(["Criança"])
+    R(["Responsável ou professor"])
+    C --- U1["Escolher faixa etária"]
+    C --- U2["Procurar bichinhos no ambiente"]
+    C --- U3["Capturar respondendo perguntas"]
+    C --- U4["Ler a explicação do erro"]
+    C --- U5["Consultar o livro de coleção"]
+    R --- U6["Acompanhar a sessão"]
+    R --- U7["Configurar o modo de demonstração"]
+```
+
 ### Regra de captura e dificuldade
 
 ```mermaid
@@ -440,6 +455,22 @@ Capturas de tela feitas no Xiaomi Redmi Note 13 Pro.
 |:---:|:---:|:---:|:---:|
 | <img src="docs/images/tela-inicial.png" width="200"> | <img src="docs/images/experiencia-ra.png" width="200"> | <img src="docs/images/desafio-matematica.png" width="200"> | <img src="docs/images/catalogo.png" width="200"> |
 | Seleção da faixa etária (6–7, 8–9, 10–12) e botão *Start Game* | Criatura posicionada no piso, com pontuação no canto e ícone do catálogo | Problema contextualizado com 4 alternativas coloridas | Livro com carta colorida (capturada) e silhueta `???`; 7 espécies em 4 páginas |
+
+### Fluxo de navegação
+
+```
+Tela Inicial (faixa etária)
+    ↓
+Exploração com a câmera (RA)
+    ↓
+Desafio (pergunta e alternativas)
+    ↓
+Feedback (acerto ou erro com explicação)
+    ↓
+Captura / recarga
+    ↓
+Livro de coleção (acessível a qualquer momento)
+```
 
 ## 21. Parâmetros Configuráveis
 
@@ -610,7 +641,58 @@ test: registra verificação no Redmi Note 13 Pro
 
 ---
 
-## 30. Melhorias Futuras
+## 30. Problemas Encontrados e Soluções
+
+### Problema 1: imagem da câmera não aparecia (tela amarela ou preta)
+
+**Problema:** no Editor e no aparelho, o fundo ficava em uma cor sólida em vez da imagem da câmera.
+**Causa:** faltavam o objeto AR Session na cena e o recurso AR Background Renderer Feature no renderizador do URP.
+**Solução:** adicionar o AR Session e o recurso nos dois renderizadores (`PC_Renderer` e `Mobile_Renderer`).
+
+### Problema 2: falha na compilação para Android
+
+**Problema:** a build era recusada.
+**Causa:** o ARCore exige API mínima 24 e não suporta Vulkan.
+**Solução:** definir Minimum API Level 24 e deixar somente OpenGLES3 em Graphics APIs.
+
+### Problema 3: erro de leitura de entrada
+
+**Problema:** exceção ao usar o Input clássico (toque e mouse).
+**Causa:** o projeto estava configurado só para o novo Input System.
+**Solução:** definir Active Input Handling como Both.
+
+### Problema 4: bichinhos andando sozinhos e deitados em paredes
+
+**Problema:** o personagem se movia sozinho e, ao tocar em uma parede, aparecia deitado.
+**Causa:** o Root Motion do Animator movia o personagem, e a rotação seguia a orientação da superfície.
+**Solução:** desativar o Root Motion, restringir a detecção a superfícies horizontais e virar o personagem para a câmera.
+
+### Problema 5: elementos de interface sobrepostos e texto em uma letra por linha
+
+**Problema:** textos e botões ficavam empilhados no centro da tela.
+**Causa:** painéis criados com o tamanho padrão (100 x 100) e um Layout Group forçando o tamanho dos filhos.
+**Solução:** esticar os painéis (âncoras stretch), remover o Layout Group e usar Grid Layout Group nas alternativas.
+
+### Problema 6: bichinho que falhava na captura nunca voltava
+
+**Problema:** após a recarga, o bichinho não reaparecia.
+**Causa:** o objeto era desativado, e um objeto desativado não executa código.
+**Solução:** esconder só o visual e o collider, e salvar a hora real em que a recarga termina.
+
+### Problema 7: imagens de acerto e erro apareciam juntas
+
+**Problema:** no erro, a imagem de acerto ficava junto com a de erro.
+**Causa:** o script não controlava a visibilidade das imagens.
+**Solução:** adicionar campos para as duas imagens e ligar somente a correspondente.
+
+### Problema 8: envio ao GitHub recusado
+
+**Problema:** o push falhava por arquivo acima de 100 MB.
+**Causa:** vídeos de outros projetos estavam dentro de `Assets` e já tinham entrado no histórico do commit.
+**Solução:** remover os arquivos do projeto e recriar o repositório limpo, com o `.gitignore` do Unity.
+
+---
+## 31. Melhorias Futuras
 
 - Registro automático de uso (acertos e erros por operação e nível).
 - Mais espécies de criaturas e novos contextos de problemas.
@@ -620,7 +702,7 @@ test: registra verificação no Redmi Note 13 Pro
 
 ---
 
-## 31. Custos e Recursos
+## 32. Custos e Recursos
 
 | Recurso | Tipo | Custo/Condição |
 |---|---|---|
@@ -631,7 +713,7 @@ test: registra verificação no Redmi Note 13 Pro
 
 ---
 
-## 32. Referências
+## 33. Referências
 
 - BARDIN, L. **Análise de conteúdo**. São Paulo: Edições 70, 2011.
 - BRASIL. Ministério da Educação. **Base Nacional Comum Curricular**. Brasília, DF: MEC, 2018.
@@ -644,13 +726,13 @@ test: registra verificação no Redmi Note 13 Pro
 
 ---
 
-## 33. Licença
+## 34. Licença
 
 Projeto acadêmico desenvolvido para fins educacionais na disciplina UPX — Realidade Aumentada, Centro Universitário Facens.
 
 ---
 
-## 34. Autores
+## 35. Autores
 
 - **João Vítor Goya** — líder e gestão do projeto
 - **João Pedro Medeiros** — desenvolvimento
@@ -659,5 +741,5 @@ Projeto acadêmico desenvolvido para fins educacionais na disciplina UPX — Rea
 - **Matheus E. Oliveira** — edição e pesquisa
 
 **Orientação:** Prof. Daniel Ohata  
-**Instituição:** Centro Universitário Facens — Sorocaba, SP  
+**Instituição:** Centro Universitário Facens(UniFacens) — Sorocaba, SP  
 **Disciplina:** UPX — Realidade Aumentada · **Semestre:** 2026.2
